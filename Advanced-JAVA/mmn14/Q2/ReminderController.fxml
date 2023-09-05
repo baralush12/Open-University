@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReminderController">
+   <children>
+      <ComboBox fx:id="yearBox" layoutX="350.0" layoutY="81.0" onAction="#clearReminderArea" prefWidth="100.0" promptText="Year" />
+      <ComboBox fx:id="dayBox" layoutX="150.0" layoutY="81.0" onAction="#clearReminderArea" prefWidth="100.0" promptText="Day" />
+      <ComboBox fx:id="monthBox" layoutX="250.0" layoutY="81.0" onAction="#clearReminderArea" prefWidth="100.0" promptText="Month" />
+      <TextArea fx:id="reminderArea" layoutX="150.0" layoutY="125.0" prefHeight="200.0" prefWidth="300.0" />
+      <Button fx:id="saveButton" layoutX="346.0" layoutY="338.0" mnemonicParsing="false" onAction="#saveReminder" text="Submit" />
+      <Button fx:id="retrieveButton" layoutX="263.0" layoutY="338.0" mnemonicParsing="false" onAction="#retrieveReminder" text="Retrive" />
+      <Button fx:id="loadButton" layoutX="150.0" layoutY="50.0" mnemonicParsing="false" onAction="#loadFile" text="Load" />
+      <TextField fx:id="fileNameField" layoutX="226.0" layoutY="50.0" promptText="Enter file name" />
+   </children>
+</AnchorPane>

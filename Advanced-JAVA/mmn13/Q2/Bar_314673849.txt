@@ -1,0 +1,6 @@
+Ice Cream, 2
+Olive Bread, 1
+Pasta, 5
+Coke, 1
+Pizza, 1
+Total: $103.0

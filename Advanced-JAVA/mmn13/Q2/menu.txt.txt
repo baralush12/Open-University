@@ -1,0 +1,12 @@
+Pizza
+Main Course
+15.0
+Pasta
+First Course
+10.0
+Ice Cream
+Dessert
+5.0
+Coke
+Drink
+3.0

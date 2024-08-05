@@ -1,0 +1,60 @@
+<div class="page-wrapper">
+  <!-- HEADER DESKTOP-->
+  <header class="header-desktop">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" routerLink="/products">
+        <img src="assets/images/logo.png" alt="Bookify" class="img-fluid" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/books">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/add-book">Add Book</a>
+          </li>
+        </ul>
+        <div class="cart-area ml-auto">
+          <app-cart-status></app-cart-status>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- END HEADER DESKTOP-->
+
+  <!-- MAIN CONTENT-->
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- END MAIN CONTENT-->
+</div>
+<!-- ENDS PAGE CONTAINER -->
+
+<!-- FOOTER -->
+<footer class="bg-dark text-center py-3">
+  <ul class="list-inline mb-0">
+    <li class="list-inline-item">
+      <a routerLink="/" class="text-white">Home</a>
+    </li>
+    <li class="list-inline-item">
+      <a routerLink="/books" class="text-white">Books</a>
+    </li>
+  </ul>
+</footer>

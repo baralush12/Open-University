@@ -1,0 +1,115 @@
+<div class="d-flex">
+  <aside class="menu-sidebar d-none d-lg-block">
+    <app-product-category-menu></app-product-category-menu>
+  </aside>
+  <div class="main-content py-5" style="margin-top: 75px">
+    <div class="section-content section-content-p30">
+      <div class="container">
+        <div
+          class="form-header d-flex justify-content-center align-items-center my-4"
+        >
+          <div class="input-group">
+            <input
+              #myInput
+              type="text"
+              placeholder="Search for products and categories..."
+              class="form-control form-control-sm"
+              (keyup.enter)="doSearch(myInput.value)"
+            />
+            <div class="input-group-append">
+              <span class="input-group-text bg-white border-0"
+                ><i class="fas fa-search"></i
+              ></span>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="mb-4">Category: {{ currentCategoryName }}</h4>
+        <hr />
+
+        <div class="row">
+          <!-- Loop over the collection of products -->
+          <div
+            *ngFor="let tempProduct of products"
+            class="col-lg-3 col-md-4 col-sm-6 mb-4"
+          >
+            <div class="card h-100 product-box shadow-sm d-flex flex-column">
+              <a
+                routerLink="/products/{{ tempProduct.id }}"
+                class="d-flex justify-content-center align-items-center"
+              >
+                <img
+                  src="{{ tempProduct.imageUrl }}"
+                  class="card-img-top img-fluid"
+                />
+              </a>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center">
+                  <a routerLink="/products/{{ tempProduct.id }}">{{
+                    tempProduct.name
+                  }}</a>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted text-center">
+                  {{ currentCategoryName }}
+                </h6>
+                <div class="price text-center mb-2">
+                  {{ tempProduct.unitPrice | currency : "USD" }}
+                </div>
+                <button
+                  (click)="addToCart(tempProduct)"
+                  class="btn btn-primary btn-sm mt-auto"
+                >
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- If products are empty then display a message -->
+          <div
+            *ngIf="products?.length == 0"
+            class="alert alert-warning col-12"
+            role="alert"
+          >
+            No products found.
+          </div>
+        </div>
+
+        <!-- Pagination and page size -->
+        <div class="footer-pagination mt-4">
+          <div class="row align-items-center">
+            <div class="col-md-9">
+              <ngb-pagination
+                [(page)]="thePageNumber"
+                [pageSize]="thePageSize"
+                [collectionSize]="theTotalElements"
+                [maxSize]="5"
+                [boundaryLinks]="true"
+                (pageChange)="listProducts()"
+                class="d-flex justify-content-center"
+              >
+              </ngb-pagination>
+            </div>
+            <!-- Page size selector -->
+            <div class="col-md-3 text-right">
+              <label for="pageSizeSelect" class="mr-2">Page Size</label>
+              <select
+                id="pageSizeSelect"
+                #myPageSelect
+                (change)="updatePageSize(myPageSelect.value)"
+                class="custom-select custom-select-sm w-auto"
+              >
+                <option>2</option>
+                <option selected="true">5</option>
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- end Pagination and page size -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+    <h2>Add New book</h2>
+    <form (ngSubmit)="onSubmit()" #bookForm="ngForm">
+      <div class="form-group">
+        <label for="categoryId">Category ID</label>
+        <input type="number" id="categoryId" name="categoryId" class="form-control" [(ngModel)]="book.category_id" required>
+      </div>
+      <div class="form-group">
+        <label for="sku">SKU</label>
+        <input type="text" id="sku" name="sku" class="form-control" [(ngModel)]="book.sku" required>
+      </div>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" class="form-control" [(ngModel)]="book.name" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" class="form-control" [(ngModel)]="book.description" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="unitPrice">Unit Price</label>
+        <input type="number" id="unitPrice" name="unitPrice" class="form-control" [(ngModel)]="book.unit_price" required>
+      </div>
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input type="text" id="imageUrl" name="imageUrl" class="form-control" [(ngModel)]="book.image_url" required>
+      </div>
+      <div class="form-group">
+        <label>Active</label><br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="activeYes" name="active" value="true" [(ngModel)]="book.active" required>
+          <label class="form-check-label" for="activeYes">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" id="activeNo" name="active" value="false" [(ngModel)]="book.active" required>
+          <label class="form-check-label" for="activeNo">No</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="unitsInStock">Units in Stock</label>
+        <input type="number" id="unitsInStock" name="unitsInStock" class="form-control" [(ngModel)]="book.units_in_stock" required>
+      </div>
+
+      <div class="form-group">
+        <label for="user">User</label>
+        <input type="text" id="user" name="user" class="form-control" [(ngModel)]="user">
+        <small class="form-text text-muted">Hint: Use 'admin' as the user</small>
+      </div>
+      
+      <!-- Password field -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="password">
+        <small class="form-text text-muted">Hint: Use 'admin' as the password</small>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid">Add book</button>
+    </form>
+  </div>
+  
